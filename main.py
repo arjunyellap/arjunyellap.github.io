@@ -1,19 +1,18 @@
-print('Hello! This is an arbitrage calculator.')
-print('Here, I am considering 2 bookmakers with 2 odds.')
-win1=input('Give the winning odd on betting site 1: ')
-lose1=input('Give the losing odd on betting site 1: ')
-win2=input('Give the winning odd on betting site 2: ')
-lose2=input('Give the losing odd on betting site 2: ')
+def runthething(event):
+ win1 = document.querySelector('#win1')
+ win2 = document.querySelector('#win2')
+ lose1 = document.querySelector('#lose1')
+ lose2 = document.querySelector('#lose2')
 
-bestwin = float(max(win1, win2))
-bestloss = float(max(lose1, lose2))
+ bestwin = float(max(win1, win2))
+ bestloss = float(max(lose1, lose2))
 
-arbitrage = ((1/bestwin) + (1/bestloss))
-score=(100-(arbitrage*100))
-if score<0:
+ arbitrage = ((1/bestwin) + (1/bestloss))
+ score=(100-(arbitrage*100))
+ if score<0:
    print('There is no possible arbitrage with these odds.')
 
-else:
+ else:
    print(score,'% is our profit margin.')
    amount = float(input('How much are you looking to bet? '))
    profit = (amount/arbitrage) - amount
