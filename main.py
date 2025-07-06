@@ -3,10 +3,10 @@ from pyscript import document
 from pyodide.ffi import JsProxy
 
 def dothething(event):
- win1 = to_py(document.querySelector('#win1'))
- win2 = to_py(document.querySelector('#win2'))
- lose1 = to_py(document.querySelector('#lose1'))
- lose2 = to_py(document.querySelector('#lose2'))
+ win1 = js_number_proxy.to_py(document.querySelector('#win1'))
+ win2 = js_number_proxy.to_py(document.querySelector('#win2'))
+ lose1 = js_number_proxy.to_py(document.querySelector('#lose1'))
+ lose2 = js_number_proxy.to_py(document.querySelector('#lose2'))
 
  bestwin = float(max(win1, win2))
  bestloss = float(max(lose1, lose2))
