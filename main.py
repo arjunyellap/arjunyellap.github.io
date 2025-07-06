@@ -1,3 +1,5 @@
+from pyscript import document
+
 def dothething(event):
  win1 = document.querySelector('#win1')
  win2 = document.querySelector('#win2')
