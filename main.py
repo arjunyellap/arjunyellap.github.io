@@ -1,3 +1,4 @@
+
 from pyscript import document
 
 def dothething(event):
