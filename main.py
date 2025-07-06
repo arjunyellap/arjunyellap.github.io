@@ -1,4 +1,4 @@
-def runthething(event):
+def dothething(event):
  win1 = document.querySelector('#win1')
  win2 = document.querySelector('#win2')
  lose1 = document.querySelector('#lose1')
