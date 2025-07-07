@@ -12,8 +12,32 @@
      <input type="number" id="win2" name="win2" min="0" max="1000" placeholder='Winning odds from site #2' />
      <input type="number" id="lose1" name="lose1" min="0" max="1000" placeholder='Losing odds from site #1' />
      <input type="number" id="lose2" name="lose2" min="0" max="1000" placeholder='Losing odds from site #2' />
-    <button py-click="dothething">Arbitrage!</button>
-    <script type="py" src="./main.py" config="./pyscript.json"></script>
+    <button onclick="dothething()">Arbitrage!</button>
+    
+    <script>
+      function dothething(){
+      let bestwin = Math.max(win1, win2);
+let bestloss = Math.max(lose1, lose2);
+
+let arbitrage = (1 / bestwin) + (1 / bestloss);
+let score = 100 - (arbitrage * 100);
+if (score < 0) {
+    console.log('There is no possible arbitrage with these odds.');
+} else {
+    console.log(score + '% is our profit margin.');
+    let amount = parseFloat(prompt('How much are you looking to bet? '));
+    let profit = (amount / arbitrage) - amount;
+    let percentageprofit = (profit / amount) * 100;
+    console.log('$' + profit + ' is your guaranteed profit, or a return of ' + percentageprofit + '%.');
+    let winstake = (amount * (1 / bestwin)) / arbitrage;
+    let lossstake = (amount * (1 / bestloss)) / arbitrage;
+
+    console.log('Place a bet of $' + winstake + ' for a win.');
+    console.log('Place a bet of $' + lossstake + ' for a loss.');
+}
+}
+      
+    </script>
     
 
     <!-- TODO: Fill in our custom application code here... -->
